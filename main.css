@@ -1,0 +1,30 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+html {
+  background-color: #FF3232;
+  font-family: 'Roboto', sans-serif;
+  margin: 40px 120px 0;
+  color: #fff;
+  line-height: 1.2em;
+  font-size: 12pt;
+}
+a {
+  color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+  html {
+    margin: 20px 40px 0;
+  }
+}
+
+@media screen and (max-width: 389px) {
+  html {
+    font-size: 10pt;
+    margin: 10px 20px 0;
+  }
+  h1, h2 {
+    text-align: center;
+  }
+}

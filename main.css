@@ -6,7 +6,12 @@ html {
   line-height: 1.2em;
   font-size: 12pt;
 }
+
 a {
+  color: #ffffff;
+}
+
+a:visited { 
   color: #ffffff;
 }
 

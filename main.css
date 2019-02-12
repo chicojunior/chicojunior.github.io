@@ -2,12 +2,12 @@ html {
   background-color: #191919;
   font-family: 'Roboto', sans-serif;
   margin: 40px 120px 0;
-  color: #fff;
+  color: #ffffff;
   line-height: 1.2em;
   font-size: 12pt;
 }
 a {
-  color: #fff;
+  color: #ffffff;
 }
 
 @media screen and (max-width: 768px) {

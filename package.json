@@ -1,0 +1,22 @@
+{
+  "name": "chicojunior.github.io",
+  "version": "1.0.0",
+  "description": "This repository gives you the code you'll need to kickstart a personal website that showcases your work as a software developer. And when you manage the code in a GitHub repository, it will automatically render a webpage with the owner's profile information, including a photo, bio, and repositories.",
+  "main": "index.js",
+  "scripts": {
+    "update-site-win": "xcopy /s C:\\Users\\Francisco_Do_Vale\\projects\\personal\\chicojunior.github.io\\src\\_site\\* C:\\Users\\Francisco_Do_Vale\\projects\\personal\\chicojunior.github.io",
+    "build": "bundler exec jekyll build",
+    "deploy": "npm run build && npm run update-site-win"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chicojunior/chicojunior.github.io.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chicojunior/chicojunior.github.io/issues"
+  },
+  "homepage": "https://github.com/chicojunior/chicojunior.github.io#readme"
+}

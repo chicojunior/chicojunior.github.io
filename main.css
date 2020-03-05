@@ -1,0 +1,36 @@
+html,
+body {
+	margin: 0;
+	height: 100%;
+	font-family: 'Source Sans Pro', sans-serif;
+	background-color: #f5f7fa;
+	background-image: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.title {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+}
+
+.title h1 {
+	margin: 0;
+	font-size: 3.1em;
+	font-weight: 400;
+}
+
+.title small {
+	font-size: 1em;
+	font-weight: 300;
+}
+
+.title strong {
+	font-weight: 700;
+}

@@ -1,9 +1,0 @@
-<h2 {% if site.style == 'dark' %}class="text-white"{% endif %}>Skills</h2>
-<p class="f4 mb-4 {% if site.style == 'dark' %}text-white{% else %}text-gray{% endif %}">Technologies that I know or have worked with.</p>
-<div class="d-flex flex-wrap gutter-condensed mb-4 center-list">
-  {% for skill in site.skills %}
-    <div class="mb-3 ml-2 mr-2">
-      {% include skill-card.html %}
-    </div>
-  {% endfor %}
-</div>

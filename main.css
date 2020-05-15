@@ -7,7 +7,7 @@ body {
 body {
   font-family: 'Roboto Condensed', sans-serif;
   color: #323330;
-  margin: 0 12rem;
+  margin: 0 10rem;
 }
 
 footer {
@@ -58,4 +58,16 @@ ul {
 
 .title__section {
   width: fit-content;
+}
+
+@media screen and (max-width: 768px) {
+  body {
+    margin: 0 5rem;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  body {
+    margin: 0 3rem;
+  }
 }

@@ -20,6 +20,15 @@ a {
   font-weight: bold;
 }
 
+p,
+li {
+  font-size: 18px;
+}
+
+h3 {
+  font-size: 22px;
+}
+
 a:hover {
   background-color: #f0db4f;
 }

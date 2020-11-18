@@ -8,6 +8,7 @@ body {
   font-family: 'Roboto Condensed', sans-serif;
   color: #323330;
   margin: 0 10rem;
+  line-height: 150%;
 }
 
 footer {

@@ -4,6 +4,12 @@ body {
   height: 100%;
 }
 
+.gradient-text {
+  background: -webkit-linear-gradient(#090979, #b300ff);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 body {
   font-family: 'Roboto Condensed', sans-serif;
   color: #323330;

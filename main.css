@@ -15,6 +15,7 @@ body {
   color: #323330;
   margin: 0 10rem;
   line-height: 150%;
+  max-width: 680px;
 }
 
 footer {

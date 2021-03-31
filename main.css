@@ -41,7 +41,7 @@ h1 {
 }
 
 nav {
-  margin: 2vw 0 0 0;
+  margin: 2em 0 0 0;
 }
 
 nav a {
@@ -66,14 +66,8 @@ a:hover {
   color: #d32f2f;
 }
 
-@media screen and (max-width: 768px) {
-  body {
-    margin: 0 5rem;
-  }
-}
-
-@media screen and (max-width: 425px) {
-  body {
-    margin: 0 3rem;
+@media screen and (max-width: 800px) {
+  h1 {
+    font-size: 4rem;
   }
 }

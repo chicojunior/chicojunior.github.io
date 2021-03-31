@@ -1,81 +1,69 @@
 html,
 body {
-  margin: 0;
+  box-sizing: border-box;
   height: 100%;
-}
-
-.gradient-text {
-  background: -webkit-linear-gradient(#090979, #b300ff);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  font-size: 60%;
+  background: #0f1114;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  font-family: 'Roboto Condensed', sans-serif;
-  color: #323330;
-  margin: 0 10rem;
-  line-height: 150%;
-  max-width: 680px;
+  font-family: "Roboto", "Oxygen", "Open Sans", sans-serif;
+  color: #f0db4f;
+  font-size: 2rem;
+  line-height: 1.55em;
+  font-weight: 400;
+  font-style: normal;
+  letter-spacing: 0;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
 }
 
-footer {
-  text-align: center;
+section {
+  height: 100%;
+  max-width: 1000px;
+  padding: 8vmin;
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 9rem;
+  font-weight: 700;
+  line-height: 1.05em;
+  text-rendering: optimizeLegibility;
+  margin: 0;
+}
+
+nav {
+  margin: 2vw 0 0 0;
+}
+
+nav a {
+  display: inline-block;
+  margin: 0 2vw 0 0;
+  letter-spacing: 0.5px;
+  font-weight: 400;
 }
 
 a {
   text-decoration: none;
-  color: #323330;
+  color: #f0db4f;
   font-weight: bold;
-}
-
-p,
-li {
-  font-size: 18px;
-}
-
-h2 {
-  font-size: 30px;
-}
-
-h3 {
-  font-size: 22px;
+  -o-transition:.3s;
+  -ms-transition:.3s;
+  -moz-transition:.3s;
+  -webkit-transition:.3s;
+  transition:.3s;
 }
 
 a:hover {
-  background-color: #f0db4f;
-}
-
-.fab,
-.fas {
-  font-size: 2rem;
-}
-
-.contact-list {
-  display: flex;
-  flex-direction: row;
-  padding: 0;
-  list-style: none;
-}
-
-.contact-list > li {
-  margin: 0 8px;
-}
-
-.contact-list > li > a {
-  color: #323330;
-}
-
-.contact-list > li > a > i:hover {
-  background-color: #f0db4f;
-}
-
-.title__main {
-  width: fit-content;
-  background-color: #f0db4f;
-}
-
-.title__section {
-  width: fit-content;
+  color: #d32f2f;
 }
 
 @media screen and (max-width: 768px) {

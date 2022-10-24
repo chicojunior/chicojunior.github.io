@@ -64,6 +64,9 @@ a {
 
 a:hover {
   color: #d32f2f;
+  background: linear-gradient(to right, #C3002F, #61DBFB);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 @media screen and (max-width: 800px) {

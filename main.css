@@ -1,75 +1,75 @@
 html,
 body {
-  box-sizing: border-box;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: sans-serif;
-  overflow-x: hidden;
-  overflow-y: scroll;
-  font-size: 60%;
-  background: #0f1114;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
+	box-sizing: border-box;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+	overflow-x: hidden;
+	overflow-y: scroll;
+	font-size: 60%;
+	background: #0f1114;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
 }
 
 body {
-  font-family: "Roboto", "Oxygen", "Open Sans", sans-serif;
-  color: #f0db4f;
-  font-size: 2rem;
-  line-height: 1.55em;
-  font-weight: 400;
-  font-style: normal;
-  letter-spacing: 0;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
+	font-family: 'Roboto', 'Oxygen', 'Open Sans', sans-serif;
+	color: #f0db4f;
+	font-size: 2rem;
+	line-height: 1.55em;
+	font-weight: 400;
+	font-style: normal;
+	letter-spacing: 0;
+	text-rendering: optimizeLegibility;
+	-webkit-font-smoothing: antialiased;
 }
 
 section {
-  height: 100%;
-  max-width: 1000px;
-  padding: 8vmin;
-  overflow: hidden;
+	height: 100%;
+	max-width: 1000px;
+	padding: 8vmin;
+	overflow: hidden;
 }
 
 h1 {
-  font-size: 9rem;
-  font-weight: 700;
-  line-height: 1.05em;
-  text-rendering: optimizeLegibility;
-  margin: 0;
+	font-size: 9rem;
+	font-weight: 700;
+	line-height: 1.05em;
+	text-rendering: optimizeLegibility;
+	margin: 0;
 }
 
 nav {
-  margin: 2em 0 0 0;
+	margin: 2em 0 0 0;
 }
 
 nav a {
-  display: inline-block;
-  margin: 0 2vw 0 0;
-  letter-spacing: 0.5px;
-  font-weight: 400;
+	display: inline-block;
+	margin: 0 2vw 0 0;
+	letter-spacing: 0.5px;
+	font-weight: 400;
 }
 
 a {
-  text-decoration: none;
-  color: #f0db4f;
-  font-weight: bold;
-  -o-transition:.3s;
-  -ms-transition:.3s;
-  -moz-transition:.3s;
-  -webkit-transition:.3s;
-  transition:.3s;
+	text-decoration: none;
+	color: #f0db4f;
+	font-weight: bold;
+	-o-transition: 0.8s;
+	-ms-transition: 0.8s;
+	-moz-transition: 0.8s;
+	-webkit-transition: 0.8s;
+	transition: 0.8s;
 }
 
 a:hover {
-  background: linear-gradient(to right, #C3002F, #61DBFB);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+	background: linear-gradient(to right, #c3002f, #61dbfb);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 @media screen and (max-width: 800px) {
-  h1 {
-    font-size: 4rem;
-  }
+	h1 {
+		font-size: 4rem;
+	}
 }

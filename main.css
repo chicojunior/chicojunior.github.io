@@ -4,72 +4,62 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
-	font-family: sans-serif;
 	overflow-x: hidden;
 	overflow-y: scroll;
-	font-size: 60%;
-	background: #0f1114;
-	-ms-text-size-adjust: 100%;
-	-webkit-text-size-adjust: 100%;
+	background: #000;
 }
 
 body {
-	font-family: 'Roboto', 'Oxygen', 'Open Sans', sans-serif;
-	color: #f0db4f;
-	font-size: 2rem;
-	line-height: 1.55em;
-	font-weight: 400;
-	font-style: normal;
+	font-family: 'Familjen Grotesk', 'Open Sans', sans-serif;
+	color: #fff;
+	max-width: 1000px;
+	padding: 64px 56px;
+	overflow: hidden;
+	text-transform: uppercase;
 	letter-spacing: 0;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
 }
 
-section {
-	height: 100%;
-	max-width: 1000px;
-	padding: 8vmin;
-	overflow: hidden;
+a {
+	text-decoration: underline;
+	color: white;
 }
 
 h1 {
-	font-size: 9rem;
-	font-weight: 700;
-	line-height: 1.05em;
-	text-rendering: optimizeLegibility;
-	margin: 0;
+	font-family: 'NewGrotesk-MediumMono';
+	font-weight: 600;
+	font-size: 20px;
+	line-height: 32px;
+	text-transform: uppercase;
 }
 
-nav {
-	margin: 2em 0 0 0;
-}
-
-nav a {
-	display: inline-block;
-	margin: 0 2vw 0 0;
-	letter-spacing: 0.5px;
-	font-weight: 400;
-}
-
-a {
-	text-decoration: none;
-	color: #f0db4f;
-	font-weight: bold;
-	-o-transition: 0.8s;
-	-ms-transition: 0.8s;
-	-moz-transition: 0.8s;
-	-webkit-transition: 0.8s;
-	transition: 0.8s;
-}
-
-a:hover {
-	background: linear-gradient(to right, #c3002f, #61dbfb);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+p {
+	font-family: 'NewGrotesk-RegularMono';
+	font-weight: 300;
+	font-size: 18px;
+	line-height: 32px;
+	text-transform: uppercase;
 }
 
 @media screen and (max-width: 800px) {
 	h1 {
 		font-size: 4rem;
 	}
+}
+
+@font-face {
+	font-family: 'NewGrotesk-RegularMono';
+	src: url('fonts/NewGrotesk-RegularMono.woff2') format('woff2'),
+		url('fonts/NewGrotesk-RegularMono.woff') format('woff');
+	font-weight: 400;
+	font-style: normal;
+}
+
+@font-face {
+	font-family: 'NewGrotesk-MediumMono';
+	src: url('fonts/NewGrotesk-MediumMono.woff2') format('woff2'),
+		url('fonts/NewGrotesk-MediumMono.woff') format('woff');
+	font-weight: 300;
+	font-style: normal;
 }

@@ -1,0 +1,84 @@
+body {
+	font-family: 'SF Pro', 'Inter', -apple-system, BlinkMacSystemFont, Segoe UI,
+		Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+		sans-serif;
+	font-size: 1em;
+	background-color: #000000;
+	color: #ffffff;
+}
+
+h1 {
+	margin-bottom: 0.5rem;
+}
+
+p {
+	color: #868686;
+}
+
+.work > ul {
+	padding: 0;
+	display: flex;
+	flex-direction: column;
+}
+
+.experience {
+	display: flex;
+}
+
+.time {
+	flex: 1;
+}
+
+.position {
+	flex: 3;
+	text-align: start;
+}
+
+.title {
+	color: #ffffff;
+}
+
+.title a {
+	text-decoration: none;
+	color: #ffffff;
+}
+
+.stack {
+	color: #5b5b5b;
+}
+
+.stack-list {
+	color: #5b5b5b;
+	display: flex;
+	flex-direction: row;
+	padding: 0;
+}
+
+.stack-list li {
+	color: #5b5b5b;
+	list-style: disc;
+	margin-right: 1rem;
+	list-style-position: inside;
+}
+
+.stack-list li:first-child {
+	color: #5b5b5b;
+	list-style: none;
+}
+
+.container {
+	padding-top: 115px;
+	padding-bottom: 115px;
+	max-width: 500px;
+	margin-inline-start: auto;
+	margin-inline-end: auto;
+}
+
+.name {
+	word-wrap: break-word;
+	margin-bottom: 3rem;
+}
+
+.name > p {
+	margin: 0;
+}

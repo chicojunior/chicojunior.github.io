@@ -6,12 +6,12 @@ body {
 	padding: 0;
 	overflow-x: hidden;
 	overflow-y: scroll;
-	background: #000000;
+	background: #ffffff;
 }
 
 body {
 	font-family: 'Familjen Grotesk', 'Open Sans', sans-serif;
-	color: #fff;
+	color: #323330;
 	max-width: 1000px;
 	padding: 64px 56px;
 	overflow: hidden;
@@ -22,16 +22,29 @@ body {
 }
 
 a {
-	text-decoration: underline;
-	color: white;
+	text-decoration: none;
+	color: #323330;
+}
+
+a:hover {
+	text-decoration: none;
+	background-color: #f0db4f;
+}
+
+a:visited {
+	color: #323330;
 }
 
 h1 {
 	font-family: 'NewGrotesk-MediumMono';
 	font-weight: 600;
-	font-size: 20px;
-	line-height: 32px;
+	font-size: 1.5rem;
+	line-height: 1rem;
 	text-transform: uppercase;
+}
+
+h1 > span {
+	font-weight: 300;
 }
 
 p {

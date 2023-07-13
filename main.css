@@ -1,7 +1,6 @@
 html,
 body {
 	box-sizing: border-box;
-	height: 100%;
 	margin: 0;
 	padding: 0;
 	overflow-x: hidden;
@@ -12,13 +11,18 @@ body {
 body {
 	font-family: 'Familjen Grotesk', 'Open Sans', sans-serif;
 	color: #323330;
-	max-width: 1000px;
 	padding: 64px 56px;
 	overflow: hidden;
 	text-transform: uppercase;
 	letter-spacing: 0;
 	text-rendering: optimizeLegibility;
 	-webkit-font-smoothing: antialiased;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
 }
 
 a {
@@ -39,7 +43,7 @@ h1 {
 	font-family: 'NewGrotesk-MediumMono';
 	font-weight: 600;
 	font-size: 1.5rem;
-	line-height: 1rem;
+	line-height: 1.5rem;
 	text-transform: uppercase;
 }
 
@@ -50,14 +54,26 @@ h1 > span {
 p {
 	font-family: 'NewGrotesk-RegularMono';
 	font-weight: 300;
-	font-size: 18px;
-	line-height: 32px;
+	font-size: 17px;
+	line-height: 30px;
 	text-transform: uppercase;
 }
 
-@media screen and (max-width: 800px) {
+.contacts {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+	font-size: 1rem;
+}
+
+@media screen and (max-width: 505px) {
+	header {
+		flex-direction: column;
+	}
 	h1 {
-		font-size: 4rem;
+		font-size: 2rem;
+		line-height: 2rem;
+		margin-bottom: 0;
 	}
 }
 

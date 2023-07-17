@@ -33,6 +33,7 @@ a {
 a:hover {
 	text-decoration: none;
 	background-color: #f0db4f;
+	font-weight: bold;
 }
 
 a:visited {

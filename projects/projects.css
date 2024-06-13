@@ -3,8 +3,8 @@ body {
 		Roboto, Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
 		sans-serif;
 	font-size: 1em;
-	background-color: #000000;
-	color: #ffffff;
+	background-color: #ffffff;
+	color: #323330;
 	line-height: 1.2;
 }
 
@@ -15,12 +15,12 @@ h1 {
 }
 
 h2 {
-	font-size: 16px;
+	font-size: 1rem;
 	font-weight: 400;
 }
 
 section {
-	margin-bottom: 3rem;
+	margin-bottom: 2rem;
 }
 
 p {
@@ -53,12 +53,12 @@ ul {
 }
 
 .title {
-	color: #ffffff;
+	color: #323330;
 }
 
 .title a {
 	text-decoration: none;
-	color: #ffffff;
+	color: #323330;
 }
 
 .stack {
@@ -85,8 +85,8 @@ ul {
 }
 
 .container {
-	padding-top: 115px;
-	padding-bottom: 115px;
+	padding-top: 5rem;
+	padding-bottom: 5rem;
 	max-width: 500px;
 	margin-inline-start: auto;
 	margin-inline-end: auto;
@@ -94,7 +94,7 @@ ul {
 
 .name {
 	word-wrap: break-word;
-	margin-bottom: 3rem;
+	margin-bottom: 2rem;
 }
 
 .name > p {

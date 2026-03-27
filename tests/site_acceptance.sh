@@ -15,5 +15,6 @@ grep -q 'data-i18n="about"' "$FILE"
 grep -q 'data-i18n="stackFrontendTitle"' "$FILE"
 grep -q 'data-i18n="stackBackendTitle"' "$FILE"
 grep -q 'data-i18n="stackToolsTitle"' "$FILE"
+grep -q 'object-position: center 16%' "$FILE"
 
 echo "site_acceptance: PASS"

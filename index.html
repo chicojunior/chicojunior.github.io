@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Francisco Vale | Frontend Developer</title>
+    <meta
+      name="description"
+      content="Francisco Vale is a frontend developer focused on clean interfaces, performance, and practical product delivery."
+    >
+    <meta property="og:title" content="Francisco Vale | Frontend Developer">
+    <meta
+      property="og:description"
+      content="Minimal one-page portfolio with links, CV, and categorized tech stack."
+    >
+    <meta property="og:type" content="website">
+    <style>
+      :root {
+        --bg: #f6f5f2;
+        --surface: #ffffff;
+        --text: #111111;
+        --muted: #525252;
+        --line: #d9d9d4;
+        --accent: #1f5eff;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        color: var(--text);
+        background: radial-gradient(circle at top, #fcfcfa 0%, var(--bg) 55%);
+        line-height: 1.5;
+      }
+
+      .wrap {
+        max-width: 820px;
+        margin: 0 auto;
+        padding: 28px 20px 56px;
+      }
+
+      .topbar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        margin-bottom: 34px;
+      }
+
+      .brand {
+        font-size: 0.9rem;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        color: var(--muted);
+      }
+
+      #lang-toggle {
+        border: 1px solid var(--line);
+        background: var(--surface);
+        color: var(--text);
+        border-radius: 999px;
+        padding: 7px 14px;
+        font-size: 0.84rem;
+        cursor: pointer;
+      }
+
+      #lang-toggle:hover {
+        border-color: var(--accent);
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 92px 1fr;
+        gap: 20px;
+        align-items: center;
+        margin-bottom: 30px;
+      }
+
+      .avatar {
+        width: 92px;
+        height: 92px;
+        object-fit: cover;
+        border-radius: 14px;
+        border: 1px solid var(--line);
+        background: var(--surface);
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(1.6rem, 4vw, 2.3rem);
+        line-height: 1.15;
+      }
+
+      .headline {
+        margin: 8px 0 0;
+        color: var(--muted);
+      }
+
+      .links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 0 0 28px;
+      }
+
+      .link-btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 15px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        color: var(--text);
+        background: var(--surface);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.92rem;
+      }
+
+      .link-btn:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      section {
+        background: var(--surface);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 18px;
+        margin-bottom: 14px;
+      }
+
+      h2 {
+        margin: 0 0 12px;
+        font-size: 1rem;
+      }
+
+      p {
+        margin: 0;
+      }
+
+      .stack-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .stack-card {
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 12px;
+      }
+
+      .stack-card h3 {
+        margin: 0 0 8px;
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--muted);
+      }
+
+      .stack-card p {
+        font-size: 0.92rem;
+      }
+
+      footer {
+        margin-top: 20px;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      @media (max-width: 640px) {
+        .wrap {
+          padding: 22px 16px 42px;
+        }
+
+        .hero {
+          grid-template-columns: 1fr;
+          text-align: left;
+        }
+
+        .stack-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="topbar">
+        <div class="brand">Francisco Vale</div>
+        <button id="lang-toggle" type="button" aria-label="Toggle language">PT</button>
+      </header>
+
+      <main>
+        <section class="hero" aria-label="Introduction">
+          <img class="avatar" src="assets/img/chibi-avatar.png" alt="Chibi avatar illustration of Francisco Vale">
+          <div>
+            <h1>Francisco Vale</h1>
+            <p class="headline" data-i18n="headline">Frontend Developer focused on clear, useful products.</p>
+          </div>
+        </section>
+
+        <nav class="links" aria-label="Main links">
+          <a class="link-btn" href="https://linkedin.com/in/franciscovale" target="_blank" rel="noopener noreferrer" data-i18n="ctaLinkedIn">LinkedIn</a>
+          <a class="link-btn" href="https://github.com/chicojunior" target="_blank" rel="noopener noreferrer" data-i18n="ctaGitHub">GitHub</a>
+          <a class="link-btn" href="old/CV-Current.pdf" target="_blank" rel="noopener noreferrer" data-i18n="ctaCV">CV</a>
+        </nav>
+
+        <section aria-labelledby="about-title">
+          <h2 id="about-title" data-i18n="aboutTitle">About</h2>
+          <p data-i18n="about">I build practical interfaces with strong UX fundamentals, accessible interactions, and reliable frontend architecture.</p>
+        </section>
+
+        <section aria-labelledby="stack-title">
+          <h2 id="stack-title" data-i18n="stackTitle">Tech Stack</h2>
+          <div class="stack-grid">
+            <article class="stack-card">
+              <h3 data-i18n="stackFrontendTitle">Frontend</h3>
+              <p data-i18n="stackFrontendItems">TypeScript, React, Next.js, Tailwind CSS</p>
+            </article>
+            <article class="stack-card">
+              <h3 data-i18n="stackBackendTitle">Backend</h3>
+              <p data-i18n="stackBackendItems">Node.js, Express, PostgreSQL, REST APIs</p>
+            </article>
+            <article class="stack-card">
+              <h3 data-i18n="stackToolsTitle">Tools</h3>
+              <p data-i18n="stackToolsItems">Git, Jest, Cypress, Vite, Figma</p>
+            </article>
+          </div>
+        </section>
+      </main>
+
+      <footer data-i18n="footer">Built with HTML, CSS, and JavaScript.</footer>
+    </div>
+
+    <script>
+      const translations = {
+        en: {
+          headline: "Frontend Developer focused on clear, useful products.",
+          ctaLinkedIn: "LinkedIn",
+          ctaGitHub: "GitHub",
+          ctaCV: "CV",
+          aboutTitle: "About",
+          about: "I build practical interfaces with strong UX fundamentals, accessible interactions, and reliable frontend architecture.",
+          stackTitle: "Tech Stack",
+          stackFrontendTitle: "Frontend",
+          stackFrontendItems: "TypeScript, React, Next.js, Tailwind CSS",
+          stackBackendTitle: "Backend",
+          stackBackendItems: "Node.js, Express, PostgreSQL, REST APIs",
+          stackToolsTitle: "Tools",
+          stackToolsItems: "Git, Jest, Cypress, Vite, Figma",
+          footer: "Built with HTML, CSS, and JavaScript."
+        },
+        pt: {
+          headline: "Desenvolvedor Frontend focado em produtos claros e úteis.",
+          ctaLinkedIn: "LinkedIn",
+          ctaGitHub: "GitHub",
+          ctaCV: "CV",
+          aboutTitle: "Sobre",
+          about: "Construo interfaces práticas com base forte em UX, acessibilidade e arquitetura frontend confiável.",
+          stackTitle: "Stack Tecnológica",
+          stackFrontendTitle: "Frontend",
+          stackFrontendItems: "TypeScript, React, Next.js, Tailwind CSS",
+          stackBackendTitle: "Backend",
+          stackBackendItems: "Node.js, Express, PostgreSQL, APIs REST",
+          stackToolsTitle: "Ferramentas",
+          stackToolsItems: "Git, Jest, Cypress, Vite, Figma",
+          footer: "Construído com HTML, CSS e JavaScript."
+        }
+      };
+
+      const langToggle = document.getElementById("lang-toggle");
+
+      var _memLang = null;
+      function getLang() {
+        try { return localStorage.getItem("preferred-language"); } catch (_) { return _memLang; }
+      }
+      function setLang(lang) {
+        _memLang = lang;
+        try { localStorage.setItem("preferred-language", lang); } catch (_) {}
+      }
+
+      function applyLanguage(locale) {
+        const selected = translations[locale] ? locale : "en";
+        document.documentElement.lang = selected;
+        document.querySelectorAll("[data-i18n]").forEach((node) => {
+          const key = node.getAttribute("data-i18n");
+          node.textContent = translations[selected][key];
+        });
+        langToggle.textContent = selected === "en" ? "PT" : "EN";
+        setLang(selected);
+      }
+
+      langToggle.addEventListener("click", () => {
+        const current = getLang() || "en";
+        applyLanguage(current === "en" ? "pt" : "en");
+      });
+
+      applyLanguage(getLang() || "en");
+    </script>
+  </body>
+</html>

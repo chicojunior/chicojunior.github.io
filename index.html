@@ -275,6 +275,15 @@
 
       const langToggle = document.getElementById("lang-toggle");
 
+      var _memLang = null;
+      function getLang() {
+        try { return localStorage.getItem("preferred-language"); } catch (_) { return _memLang; }
+      }
+      function setLang(lang) {
+        _memLang = lang;
+        try { localStorage.setItem("preferred-language", lang); } catch (_) {}
+      }
+
       function applyLanguage(locale) {
         const selected = translations[locale] ? locale : "en";
         document.documentElement.lang = selected;
@@ -283,15 +292,15 @@
           node.textContent = translations[selected][key];
         });
         langToggle.textContent = selected === "en" ? "PT" : "EN";
-        localStorage.setItem("preferred-language", selected);
+        setLang(selected);
       }
 
       langToggle.addEventListener("click", () => {
-        const current = localStorage.getItem("preferred-language") || "en";
+        const current = getLang() || "en";
         applyLanguage(current === "en" ? "pt" : "en");
       });
 
-      applyLanguage(localStorage.getItem("preferred-language") || "en");
+      applyLanguage(getLang() || "en");
     </script>
   </body>
 </html>

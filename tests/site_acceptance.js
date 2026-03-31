@@ -52,8 +52,7 @@ function run() {
 
   [
     'href="styles/main.css"',
-    'rel="icon"',
-    'href="assets/img/favicon-fv.svg"',
+    '<link rel="icon" type="image/svg+xml" href="assets/img/favicon-fv.svg"',
     'src="scripts/main.js"',
     'id="lang-toggle"',
     'id="theme-toggle"',

@@ -1,7 +1,7 @@
 # Design Spec: Favicon FV (Terminal Style)
 
 Date: 2026-03-31  
-Status: Approved in chat, pending implementation planning
+Status: Implemented
 
 ## 1. Goal
 
@@ -13,7 +13,7 @@ The approved concept is a terminal-inspired monogram that reflects Francisco Val
 
 ### Approved direction
 
-- Concept: `FV2` ("Codigo Elegante")
+- Concept: `FV2` ("Código Elegante")
 - Mark: text-based monogram `"<FV>"`
 - Primary palette:
   - Background: `#F7DF1E` (JavaScript-inspired yellow)

@@ -1,10 +1,11 @@
+      "use strict";
+
       const translations = {
         en: {
           heroMeta: "@chicojunior",
           headline: "Frontend Engineer (Angular + TypeScript) focused on modern, scalable product interfaces.",
           heroNote: "I help teams modernize legacy frontends and ship clear, reliable user experiences.",
           ctaContact: "Contact",
-          ctaLinkedIn: "LinkedIn",
           ctaGitHub: "GitHub",
           ctaCV: "CV",
           aboutTitle: "About",
@@ -30,7 +31,6 @@
           headline: "Frontend Engineer (Angular + TypeScript) focado em interfaces modernas e escaláveis.",
           heroNote: "Ajudo times a modernizar frontends legados e entregar experiências claras e confiáveis.",
           ctaContact: "Contato",
-          ctaLinkedIn: "LinkedIn",
           ctaGitHub: "GitHub",
           ctaCV: "CV",
           aboutTitle: "Sobre",

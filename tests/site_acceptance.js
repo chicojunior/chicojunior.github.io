@@ -37,18 +37,23 @@ function run() {
   const cssRel = "styles/main.css";
   const jsRel = "scripts/main.js";
   const avatarRel = "assets/img/chibi-avatar.jpg";
+  const faviconRel = "assets/img/favicon-fv.svg";
 
   assertFile(indexRel);
   assertFile(cssRel);
   assertFile(jsRel);
   assertFile(avatarRel);
+  assertFile(faviconRel);
 
   const index = readText(indexRel);
   const css = readText(cssRel);
   const js = readText(jsRel);
+  const favicon = readText(faviconRel);
 
   [
     'href="styles/main.css"',
+    'rel="icon"',
+    'href="assets/img/favicon-fv.svg"',
     'src="scripts/main.js"',
     'id="lang-toggle"',
     'id="theme-toggle"',
@@ -75,6 +80,7 @@ function run() {
 
   assertNotContains(index, "<style>", indexRel);
   assertNotContains(index, "<script>", indexRel);
+  assertNotContains(index, "blowfish", indexRel);
 
   [
     "--bg: #f4f6fb;",
@@ -93,6 +99,17 @@ function run() {
     "recruiterSummary",
     "strong mid-level / early senior",
   ].forEach((expected) => assertContains(js, expected, jsRel));
+
+  [
+    "&lt;FV&gt;",
+    "#F7DF1E",
+    "#1A1A1A",
+    "Fira Code",
+    "JetBrains Mono",
+    "IBM Plex Mono",
+  ].forEach((expected) => assertContains(favicon, expected, faviconRel));
+
+  assertNotContains(favicon, "prefers-color-scheme", faviconRel);
 
   console.log("site_acceptance: PASS");
 }

@@ -47,46 +47,39 @@ function parseFrontmatter(filePath, raw) {
 
   const data = {};
   const lines = match[1].split("\n");
+  let currentKey = null;
 
   for (let lineIndex = 0; lineIndex < lines.length; lineIndex += 1) {
     const line = lines[lineIndex];
-    const trimmed = line.trim();
 
-    if (!trimmed) {
+    if (!line.trim()) {
       continue;
     }
 
-    const separator = trimmed.indexOf(":");
+    if (/^\s+/.test(line) && currentKey) {
+      const continuation = line.trim();
+      const previous = data[currentKey] == null ? "" : String(data[currentKey]);
+      data[currentKey] = previous ? `${previous} ${continuation}` : continuation;
+      continue;
+    }
+
+    const separator = line.indexOf(":");
     if (separator === -1) {
+      currentKey = null;
       continue;
     }
 
-    const key = trimmed.slice(0, separator).trim();
-    const rawValue = trimmed.slice(separator + 1).trim();
-
-    if (rawValue) {
-      data[key] = parseValue(rawValue);
-      continue;
-    }
-
-    const continuation = [];
-    while (lineIndex + 1 < lines.length) {
-      const nextLine = lines[lineIndex + 1];
-      if (!nextLine.trim()) {
-        lineIndex += 1;
-        continue;
-      }
-      if (!/^\s+/.test(nextLine)) {
-        break;
-      }
-      continuation.push(nextLine.trim());
-      lineIndex += 1;
-    }
-
-    if (continuation.length) {
-      data[key] = parseValue(continuation.join(" "));
-    }
+    const key = line.slice(0, separator).trim();
+    const rawValue = line.slice(separator + 1).trim();
+    data[key] = rawValue ? parseValue(rawValue) : "";
+    currentKey = key;
   }
+
+  Object.keys(data).forEach((key) => {
+    if (typeof data[key] === "string") {
+      data[key] = stripQuotes(data[key].trim());
+    }
+  });
 
   return { data, body: match[2].trim() };
 }

@@ -32,6 +32,13 @@ function assertNotContains(content, unexpected, label) {
   }
 }
 
+function assertMatches(content, pattern, label) {
+  pattern.lastIndex = 0;
+  if (!pattern.test(content)) {
+    throw new Error(`Expected pattern ${pattern} in ${label}`);
+  }
+}
+
 function run() {
   const blogIndexRel = "blog/index.html";
   const blogPostRel = "blog/post/index.html";
@@ -115,13 +122,13 @@ function run() {
 
   [
     "--bg: #f4f6fb;",
-    '[data-theme="dark"]',
     "--bg: #000000;",
     "border-radius: 50%",
     "object-position: center center;",
     ".blog-grid",
     ".blog-body",
   ].forEach((expected) => assertContains(css, expected, cssRel));
+  assertMatches(css, /\[data-theme=['"]dark['"]\]/, cssRel);
 
   [
     "const translations",
@@ -149,8 +156,10 @@ function run() {
   [
     "window.__BLOG_POSTS__",
     "from-vibe-coding-to-spec-driven-engineering",
+    "intentional-engineering-needs-explicit-decision-frameworks",
     '"pt-BR"',
     '"en-US"',
+    '"description": "In an environment shaped by AI, legacy systems, and cross-functional delivery, engineering consistency depends less on individual heroics and more on clear models for deciding, reviewing, and validating work."',
   ].forEach((expected) => assertContains(generatedBlog, expected, generatedBlogRel));
 
   [

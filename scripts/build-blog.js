@@ -48,8 +48,8 @@ function parseFrontmatter(filePath, raw) {
   const data = {};
   const lines = match[1].split("\n");
 
-  for (let index = 0; index < lines.length; index += 1) {
-    const line = lines[index];
+  for (let lineIndex = 0; lineIndex < lines.length; lineIndex += 1) {
+    const line = lines[lineIndex];
     const trimmed = line.trim();
 
     if (!trimmed) {
@@ -70,17 +70,17 @@ function parseFrontmatter(filePath, raw) {
     }
 
     const continuation = [];
-    while (index + 1 < lines.length) {
-      const nextLine = lines[index + 1];
+    while (lineIndex + 1 < lines.length) {
+      const nextLine = lines[lineIndex + 1];
       if (!nextLine.trim()) {
-        index += 1;
+        lineIndex += 1;
         continue;
       }
       if (!/^\s+/.test(nextLine)) {
         break;
       }
       continuation.push(nextLine.trim());
-      index += 1;
+      lineIndex += 1;
     }
 
     if (continuation.length) {
@@ -115,6 +115,7 @@ function closeList(html, state) {
   }
   html.push(state.listType === "ol" ? "</ol>" : "</ul>");
   state.listType = null;
+  state.lastListItemIndex = null;
 }
 
 function flushParagraph(html, buffer) {
@@ -129,7 +130,27 @@ function renderMarkdown(markdown) {
   const lines = markdown.split("\n");
   const html = [];
   const paragraph = [];
-  const state = { listType: null, inCode: false, codeLines: [] };
+  const state = { listType: null, lastListItemIndex: null, inCode: false, codeLines: [] };
+
+  function pushListItem(content) {
+    html.push(`<li>${renderInline(content)}</li>`);
+    state.lastListItemIndex = html.length - 1;
+  }
+
+  function appendToListItem(content) {
+    if (state.lastListItemIndex === null) {
+      return false;
+    }
+
+    const current = html[state.lastListItemIndex];
+    const suffix = "</li>";
+    if (!current.endsWith(suffix)) {
+      return false;
+    }
+
+    html[state.lastListItemIndex] = `${current.slice(0, -suffix.length)} ${renderInline(content)}</li>`;
+    return true;
+  }
 
   lines.forEach((line) => {
     const trimmed = line.trim();
@@ -174,7 +195,7 @@ function renderMarkdown(markdown) {
         state.listType = "ul";
         html.push("<ul>");
       }
-      html.push(`<li>${renderInline(unordered[1])}</li>`);
+      pushListItem(unordered[1]);
       return;
     }
 
@@ -186,12 +207,11 @@ function renderMarkdown(markdown) {
         state.listType = "ol";
         html.push("<ol>");
       }
-      html.push(`<li>${renderInline(ordered[1])}</li>`);
+      pushListItem(ordered[1]);
       return;
     }
 
-    if (state.listType && /^\s+/.test(line) && /^<li>.*<\/li>$/.test(html[html.length - 1] || "")) {
-      html[html.length - 1] = html[html.length - 1].replace("</li>", ` ${renderInline(trimmed)}</li>`);
+    if (state.listType && /^\s+/.test(line) && appendToListItem(trimmed)) {
       return;
     }
 

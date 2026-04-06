@@ -46,19 +46,47 @@ function parseFrontmatter(filePath, raw) {
   }
 
   const data = {};
-  match[1]
-    .split("\n")
-    .map((line) => line.trim())
-    .filter(Boolean)
-    .forEach((line) => {
-      const separator = line.indexOf(":");
-      if (separator === -1) {
-        return;
+  const lines = match[1].split("\n");
+
+  for (let lineIndex = 0; lineIndex < lines.length; lineIndex += 1) {
+    const line = lines[lineIndex];
+    const trimmed = line.trim();
+
+    if (!trimmed) {
+      continue;
+    }
+
+    const separator = trimmed.indexOf(":");
+    if (separator === -1) {
+      continue;
+    }
+
+    const key = trimmed.slice(0, separator).trim();
+    const rawValue = trimmed.slice(separator + 1).trim();
+
+    if (rawValue) {
+      data[key] = parseValue(rawValue);
+      continue;
+    }
+
+    const continuation = [];
+    while (lineIndex + 1 < lines.length) {
+      const nextLine = lines[lineIndex + 1];
+      if (!nextLine.trim()) {
+        lineIndex += 1;
+        continue;
       }
-      const key = line.slice(0, separator).trim();
-      const value = line.slice(separator + 1).trim();
-      data[key] = parseValue(value);
-    });
+      if (!/^\s+/.test(nextLine)) {
+        break;
+      }
+      continuation.push(nextLine.trim());
+      lineIndex += 1;
+    }
+
+    if (continuation.length) {
+      data[key] = parseValue(continuation.join(" "));
+    }
+  }
 
   return { data, body: match[2].trim() };
 }
@@ -87,6 +115,7 @@ function closeList(html, state) {
   }
   html.push(state.listType === "ol" ? "</ol>" : "</ul>");
   state.listType = null;
+  state.lastListItemIndex = null;
 }
 
 function flushParagraph(html, buffer) {
@@ -101,7 +130,27 @@ function renderMarkdown(markdown) {
   const lines = markdown.split("\n");
   const html = [];
   const paragraph = [];
-  const state = { listType: null, inCode: false, codeLines: [] };
+  const state = { listType: null, lastListItemIndex: null, inCode: false, codeLines: [] };
+
+  function pushListItem(content) {
+    html.push(`<li>${renderInline(content)}</li>`);
+    state.lastListItemIndex = html.length - 1;
+  }
+
+  function appendToListItem(content) {
+    if (state.lastListItemIndex === null) {
+      return false;
+    }
+
+    const current = html[state.lastListItemIndex];
+    const suffix = "</li>";
+    if (!current.endsWith(suffix)) {
+      return false;
+    }
+
+    html[state.lastListItemIndex] = `${current.slice(0, -suffix.length)} ${renderInline(content)}</li>`;
+    return true;
+  }
 
   lines.forEach((line) => {
     const trimmed = line.trim();
@@ -146,7 +195,7 @@ function renderMarkdown(markdown) {
         state.listType = "ul";
         html.push("<ul>");
       }
-      html.push(`<li>${renderInline(unordered[1])}</li>`);
+      pushListItem(unordered[1]);
       return;
     }
 
@@ -158,7 +207,11 @@ function renderMarkdown(markdown) {
         state.listType = "ol";
         html.push("<ol>");
       }
-      html.push(`<li>${renderInline(ordered[1])}</li>`);
+      pushListItem(ordered[1]);
+      return;
+    }
+
+    if (state.listType && /^\s+/.test(line) && appendToListItem(trimmed)) {
       return;
     }
 

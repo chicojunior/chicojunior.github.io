@@ -19,7 +19,7 @@
 	--chip-text: #203250;
 }
 
-[data-theme='dark'] {
+[data-theme="dark"] {
 	--bg: #000000;
 	--bg-glow-left: #0b1220;
 	--bg-glow-right: #101726;

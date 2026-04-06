@@ -46,34 +46,34 @@ function parseFrontmatter(filePath, raw) {
   }
 
   const data = {};
+  const lines = match[1].split("\n");
   let currentKey = null;
 
-  match[1]
-    .split("\n")
-    .forEach((rawLine) => {
-      if (!rawLine.trim()) {
-        return;
-      }
+  for (let lineIndex = 0; lineIndex < lines.length; lineIndex += 1) {
+    const line = lines[lineIndex];
 
-      const isContinuation = /^[ \t]+/.test(rawLine);
-      if (isContinuation && currentKey) {
-        const continuation = rawLine.trim();
-        const previous = data[currentKey] == null ? "" : String(data[currentKey]);
-        data[currentKey] = previous ? `${previous} ${continuation}` : continuation;
-        return;
-      }
+    if (!line.trim()) {
+      continue;
+    }
 
-      const separator = rawLine.indexOf(":");
-      if (separator === -1) {
-        currentKey = null;
-        return;
-      }
+    if (/^\s+/.test(line) && currentKey) {
+      const continuation = line.trim();
+      const previous = data[currentKey] == null ? "" : String(data[currentKey]);
+      data[currentKey] = previous ? `${previous} ${continuation}` : continuation;
+      continue;
+    }
 
-      const key = rawLine.slice(0, separator).trim();
-      const value = rawLine.slice(separator + 1).trim();
-      data[key] = parseValue(value);
-      currentKey = key;
-    });
+    const separator = line.indexOf(":");
+    if (separator === -1) {
+      currentKey = null;
+      continue;
+    }
+
+    const key = line.slice(0, separator).trim();
+    const rawValue = line.slice(separator + 1).trim();
+    data[key] = rawValue ? parseValue(rawValue) : "";
+    currentKey = key;
+  }
 
   Object.keys(data).forEach((key) => {
     if (typeof data[key] === "string") {
@@ -108,6 +108,7 @@ function closeList(html, state) {
   }
   html.push(state.listType === "ol" ? "</ol>" : "</ul>");
   state.listType = null;
+  state.lastListItemIndex = null;
 }
 
 function flushParagraph(html, buffer) {
@@ -122,7 +123,27 @@ function renderMarkdown(markdown) {
   const lines = markdown.split("\n");
   const html = [];
   const paragraph = [];
-  const state = { listType: null, inCode: false, codeLines: [] };
+  const state = { listType: null, lastListItemIndex: null, inCode: false, codeLines: [] };
+
+  function pushListItem(content) {
+    html.push(`<li>${renderInline(content)}</li>`);
+    state.lastListItemIndex = html.length - 1;
+  }
+
+  function appendToListItem(content) {
+    if (state.lastListItemIndex === null) {
+      return false;
+    }
+
+    const current = html[state.lastListItemIndex];
+    const suffix = "</li>";
+    if (!current.endsWith(suffix)) {
+      return false;
+    }
+
+    html[state.lastListItemIndex] = `${current.slice(0, -suffix.length)} ${renderInline(content)}</li>`;
+    return true;
+  }
 
   lines.forEach((line) => {
     const trimmed = line.trim();
@@ -167,7 +188,7 @@ function renderMarkdown(markdown) {
         state.listType = "ul";
         html.push("<ul>");
       }
-      html.push(`<li>${renderInline(unordered[1])}</li>`);
+      pushListItem(unordered[1]);
       return;
     }
 
@@ -179,7 +200,11 @@ function renderMarkdown(markdown) {
         state.listType = "ol";
         html.push("<ol>");
       }
-      html.push(`<li>${renderInline(ordered[1])}</li>`);
+      pushListItem(ordered[1]);
+      return;
+    }
+
+    if (state.listType && /^\s+/.test(line) && appendToListItem(trimmed)) {
       return;
     }
 

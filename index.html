@@ -1,104 +1,197 @@
 <!doctype html>
-<html lang="en" data-theme="light">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Francisco Vale | Frontend Engineer</title>
-    <meta
-      name="description"
-      content="Francisco Vale is a frontend developer focused on accessible interfaces, product clarity, and reliable delivery."
-    >
-    <meta property="og:title" content="Francisco Vale | Frontend Developer">
-    <meta
-      property="og:description"
-      content="Profile-style one-page portfolio with bilingual content and dark/light theme toggle."
-    >
-    <meta property="og:type" content="website">
-    <link rel="icon" type="image/svg+xml" href="assets/img/favicon-fv.svg">
-    <link rel="stylesheet" href="styles/main.css">
-  </head>
-  <body>
-    <div class="wrap">
-      <header class="topbar">
-        <div class="brand">Francisco Vale</div>
-        <div class="toggle-group">
-          <button id="theme-toggle" type="button" aria-label="Toggle color theme">Dark</button>
-          <button id="lang-toggle" type="button" aria-label="Toggle language">PT</button>
-        </div>
-      </header>
+<html lang="en-US" data-theme="light">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Francisco Vale | Frontend Engineer</title>
+		<meta
+			name="description"
+			content="Francisco Vale is a frontend developer focused on accessible interfaces, product clarity, and reliable delivery."
+		/>
+		<meta property="og:title" content="Francisco Vale | Frontend Developer" />
+		<meta
+			property="og:description"
+			content="Profile-style one-page portfolio with bilingual content and dark/light theme toggle."
+		/>
+		<meta property="og:type" content="website" />
+		<link rel="icon" type="image/svg+xml" href="assets/img/favicon-fv.svg" />
+		<link rel="stylesheet" href="styles/main.css" />
+	</head>
+	<body>
+		<div class="wrap">
+			<header class="topbar">
+				<div class="brand">Francisco Vale</div>
+				<div class="toggle-group">
+					<button
+						id="theme-toggle"
+						type="button"
+						aria-label="Toggle color theme"
+					>
+						Dark
+					</button>
+					<button id="lang-toggle" type="button" aria-label="Toggle language">
+						PT
+					</button>
+				</div>
+			</header>
 
-      <main>
-        <section class="hero-card panel" aria-label="Introduction">
-          <img class="avatar" src="assets/img/chibi-avatar.jpg" alt="Chibi avatar illustration of Francisco Vale">
-          <div class="hero-content">
-            <p class="hero-meta" data-i18n="heroMeta">@chicojunior</p>
-            <h1>Francisco Vale</h1>
-            <p class="headline" data-i18n="headline">Frontend Engineer (Angular + TypeScript) focused on modern, scalable product interfaces.</p>
-            <p class="hero-note" data-i18n="heroNote">I help teams modernize legacy frontends and ship clear, reliable user experiences.</p>
+			<main>
+				<section class="hero-card panel" aria-label="Introduction">
+					<img
+						class="avatar"
+						src="assets/img/chibi-avatar.jpg"
+						alt="Chibi avatar illustration of Francisco Vale"
+					/>
+					<div class="hero-content">
+						<p class="hero-meta" data-i18n="heroMeta">@chicojunior</p>
+						<h1>Francisco Vale</h1>
+						<p class="headline" data-i18n="headline">
+							Frontend Engineer (Angular + TypeScript) focused on modern,
+							scalable product interfaces.
+						</p>
+						<p class="hero-note" data-i18n="heroNote">
+							I help teams modernize legacy frontends and ship clear, reliable
+							user experiences.
+						</p>
 
-            <nav class="links" aria-label="Main links">
-              <a class="link-btn primary" href="https://linkedin.com/in/franciscovale" target="_blank" rel="noopener noreferrer" data-i18n="ctaContact">Contact</a>
-              <a class="link-btn" href="https://github.com/chicojunior" target="_blank" rel="noopener noreferrer" data-i18n="ctaGitHub">GitHub</a>
-              <a class="link-btn" href="old/CV-Current.pdf" target="_blank" rel="noopener noreferrer" data-i18n="ctaCV">CV</a>
-            </nav>
-          </div>
-        </section>
+						<nav class="links" aria-label="Main links">
+							<a
+								class="link-btn primary"
+								href="https://linkedin.com/in/franciscovale"
+								target="_blank"
+								rel="noopener noreferrer"
+								data-i18n="ctaContact"
+								>Contact</a
+							>
+							<a
+								class="link-btn"
+								href="https://github.com/chicojunior"
+								target="_blank"
+								rel="noopener noreferrer"
+								data-i18n="ctaGitHub"
+								>GitHub</a
+							>
+							<a
+								class="link-btn"
+								href="old/CV-Current.pdf"
+								target="_blank"
+								rel="noopener noreferrer"
+								data-i18n="ctaCV"
+								>CV</a
+							>
+							<a class="link-btn" href="blog/index.html" data-i18n="ctaBlog"
+								>Articles</a
+							>
+						</nav>
+					</div>
+				</section>
 
-        <section class="panel" aria-labelledby="about-title">
-          <h2 class="section-title" id="about-title" data-i18n="aboutTitle">About</h2>
-          <p class="about-copy" data-i18n="about">Frontend engineer with 10+ years building web products across Brazil and Europe. I focus on UX clarity, maintainable architecture, and consistent delivery in product teams.</p>
-        </section>
+				<section class="panel" aria-labelledby="about-title">
+					<h2 class="section-title" id="about-title" data-i18n="aboutTitle">
+						About
+					</h2>
+					<p class="about-copy" data-i18n="about">
+						Frontend engineer with 10+ years building web products across Brazil
+						and Europe. I focus on UX clarity, maintainable architecture, and
+						consistent delivery in product teams.
+					</p>
+				</section>
 
-        <section class="panel" aria-labelledby="impact-title">
-          <h2 class="section-title" id="impact-title" data-i18n="impactTitle">Impact Highlights</h2>
-          <ul class="impact-list">
-            <li data-i18n="impactItem1">Modernized legacy frontends into Angular and TypeScript platforms with reusable components.</li>
-            <li data-i18n="impactItem2">Improved team delivery consistency by structuring scalable architecture and shared UI foundations.</li>
-            <li data-i18n="impactItem3">Delivered responsive and accessible interfaces for international products with clear business focus.</li>
-          </ul>
-        </section>
+				<section class="panel" aria-labelledby="impact-title">
+					<h2 class="section-title" id="impact-title" data-i18n="impactTitle">
+						Impact Highlights
+					</h2>
+					<ul class="impact-list">
+						<li data-i18n="impactItem1">
+							Modernized legacy frontends into Angular and TypeScript platforms
+							with reusable components.
+						</li>
+						<li data-i18n="impactItem2">
+							Improved team delivery consistency by structuring scalable
+							architecture and shared UI foundations.
+						</li>
+						<li data-i18n="impactItem3">
+							Delivered responsive and accessible interfaces for international
+							products with clear business focus.
+						</li>
+					</ul>
+				</section>
 
-        <section class="panel" aria-labelledby="recruiter-title">
-          <h2 class="section-title" id="recruiter-title" data-i18n="recruiterTitle">Recruiter Snapshot</h2>
-          <p class="about-copy recruiter-summary" data-i18n="recruiterSummary">Angular and TypeScript focused frontend engineer with strong delivery ownership and international product exposure. Positioning: strong mid-level / early senior, with clear growth toward senior scope.</p>
-        </section>
+				<section class="panel" aria-labelledby="recruiter-title">
+					<h2
+						class="section-title"
+						id="recruiter-title"
+						data-i18n="recruiterTitle"
+					>
+						Recruiter Snapshot
+					</h2>
+					<p class="about-copy recruiter-summary" data-i18n="recruiterSummary">
+						Angular and TypeScript focused frontend engineer with strong
+						delivery ownership and international product exposure. Positioning:
+						strong mid-level / early senior, with clear growth toward senior
+						scope.
+					</p>
+				</section>
 
-        <section class="panel" aria-labelledby="stack-title">
-          <h2 class="section-title" id="stack-title" data-i18n="stackTitle">Tech Stack</h2>
-          <div class="stack-grid">
-            <article class="stack-card">
-              <h3 data-i18n="stackFrontendTitle">Frontend</h3>
-              <div class="chips">
-                <span class="stack-chip">TypeScript</span>
-                <span class="stack-chip">React</span>
-                <span class="stack-chip">Next.js</span>
-                <span class="stack-chip">Tailwind CSS</span>
-              </div>
-            </article>
-            <article class="stack-card">
-              <h3 data-i18n="stackBackendTitle">Backend</h3>
-              <div class="chips">
-                <span class="stack-chip">Node.js</span>
-                <span class="stack-chip">Express</span>
-                <span class="stack-chip">PostgreSQL</span>
-                <span class="stack-chip">REST APIs</span>
-              </div>
-            </article>
-            <article class="stack-card">
-              <h3 data-i18n="stackToolsTitle">Tools</h3>
-              <div class="chips">
-                <span class="stack-chip">Git</span>
-                <span class="stack-chip">Jest</span>
-                <span class="stack-chip">Cypress</span>
-                <span class="stack-chip">Figma</span>
-              </div>
-            </article>
-          </div>
-        </section>
-      </main>
+				<section class="panel" aria-labelledby="stack-title">
+					<h2 class="section-title" id="stack-title" data-i18n="stackTitle">
+						Tech Stack
+					</h2>
+					<div class="stack-grid">
+						<article class="stack-card">
+							<h3 data-i18n="stackFrontendTitle">Frontend</h3>
+							<div class="chips">
+								<span class="stack-chip">TypeScript</span>
+								<span class="stack-chip">React</span>
+								<span class="stack-chip">Next.js</span>
+								<span class="stack-chip">Tailwind CSS</span>
+							</div>
+						</article>
+						<article class="stack-card">
+							<h3 data-i18n="stackBackendTitle">Backend</h3>
+							<div class="chips">
+								<span class="stack-chip">Node.js</span>
+								<span class="stack-chip">Express</span>
+								<span class="stack-chip">PostgreSQL</span>
+								<span class="stack-chip">REST APIs</span>
+							</div>
+						</article>
+						<article class="stack-card">
+							<h3 data-i18n="stackToolsTitle">Tools</h3>
+							<div class="chips">
+								<span class="stack-chip">Git</span>
+								<span class="stack-chip">Jest</span>
+								<span class="stack-chip">Cypress</span>
+								<span class="stack-chip">Figma</span>
+							</div>
+						</article>
+					</div>
+				</section>
 
-      <footer data-i18n="footer">Open to remote and hybrid opportunities across Europe.</footer>
-    </div>
-    <script src="scripts/main.js"></script>
-  </body>
+				<section class="panel" aria-labelledby="blog-title">
+					<div class="section-heading">
+						<div>
+							<h2 class="section-title" id="blog-title" data-i18n="blogTitle">
+								Latest Technical Writing
+							</h2>
+							<p class="section-note" data-i18n="blogIntro">
+								Technical posts derived from the newsletter pipeline and
+								rewritten for a broader engineering audience.
+							</p>
+						</div>
+						<a class="link-btn" href="blog/index.html" data-i18n="blogViewAll"
+							>View all articles</a
+						>
+					</div>
+					<div class="blog-grid" data-blog-preview></div>
+				</section>
+			</main>
+
+			<footer data-i18n="footer">
+				Open to remote and hybrid opportunities across Europe.
+			</footer>
+		</div>
+		<script src="scripts/generated/blog-posts.js"></script>
+		<script src="scripts/main.js"></script>
+	</body>
 </html>

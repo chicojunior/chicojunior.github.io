@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en-US" data-theme="light">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Technical Writing | Francisco Vale</title>
+		<meta
+			name="description"
+			content="Technical articles by Francisco Vale about frontend engineering, architecture, AI-assisted workflows, and delivery practices."
+		/>
+		<meta property="og:title" content="Technical Writing | Francisco Vale" />
+		<meta
+			property="og:description"
+			content="Technical articles derived from Francisco Vale's newsletter research and rewritten for a broader engineering audience."
+		/>
+		<meta property="og:type" content="website" />
+		<link rel="icon" type="image/svg+xml" href="../assets/img/favicon-fv.svg" />
+		<link rel="stylesheet" href="../styles/main.css" />
+	</head>
+	<body>
+		<div class="wrap">
+			<header class="topbar">
+				<a class="brand brand-link" href="../index.html">Francisco Vale</a>
+				<div class="toggle-group">
+					<button
+						id="theme-toggle"
+						type="button"
+						aria-label="Toggle color theme"
+					>
+						Dark
+					</button>
+					<button id="lang-toggle" type="button" aria-label="Toggle language">
+						PT
+					</button>
+				</div>
+			</header>
+
+			<main>
+				<section class="panel" aria-labelledby="blog-page-title">
+					<p class="hero-meta">journal</p>
+					<h1 id="blog-page-title" data-i18n="blogAllTitle">
+						Technical Writing
+					</h1>
+					<p class="about-copy" data-i18n="blogAllIntro">
+						Standalone technical articles derived from the newsletter pipeline
+						and rewritten for a broader engineering audience.
+					</p>
+					<div class="links">
+						<a class="link-btn" href="../index.html" data-i18n="blogBackHome"
+							>Back home</a
+						>
+					</div>
+				</section>
+
+				<section class="panel" aria-labelledby="blog-list-title">
+					<h2
+						class="section-title"
+						id="blog-list-title"
+						data-i18n="blogListTitle"
+					>
+						All articles
+					</h2>
+					<div class="blog-grid" data-blog-list></div>
+				</section>
+			</main>
+
+			<footer data-i18n="footer">
+				Open to remote and hybrid opportunities across Europe.
+			</footer>
+		</div>
+		<script src="../scripts/generated/blog-posts.js"></script>
+		<script src="../scripts/main.js"></script>
+	</body>
+</html>

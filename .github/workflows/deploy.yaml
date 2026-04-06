@@ -29,6 +29,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Build blog data
+        run: node scripts/build-blog.js
+      - name: Run site acceptance
+        run: node tests/site_acceptance.js
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Upload artifact

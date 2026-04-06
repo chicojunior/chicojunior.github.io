@@ -46,19 +46,40 @@ function parseFrontmatter(filePath, raw) {
   }
 
   const data = {};
+  let currentKey = null;
+
   match[1]
     .split("\n")
-    .map((line) => line.trim())
-    .filter(Boolean)
-    .forEach((line) => {
-      const separator = line.indexOf(":");
-      if (separator === -1) {
+    .forEach((rawLine) => {
+      if (!rawLine.trim()) {
         return;
       }
-      const key = line.slice(0, separator).trim();
-      const value = line.slice(separator + 1).trim();
+
+      const isContinuation = /^[ \t]+/.test(rawLine);
+      if (isContinuation && currentKey) {
+        const continuation = rawLine.trim();
+        const previous = data[currentKey] == null ? "" : String(data[currentKey]);
+        data[currentKey] = previous ? `${previous} ${continuation}` : continuation;
+        return;
+      }
+
+      const separator = rawLine.indexOf(":");
+      if (separator === -1) {
+        currentKey = null;
+        return;
+      }
+
+      const key = rawLine.slice(0, separator).trim();
+      const value = rawLine.slice(separator + 1).trim();
       data[key] = parseValue(value);
+      currentKey = key;
     });
+
+  Object.keys(data).forEach((key) => {
+    if (typeof data[key] === "string") {
+      data[key] = stripQuotes(data[key].trim());
+    }
+  });
 
   return { data, body: match[2].trim() };
 }

@@ -32,6 +32,12 @@ function assertNotContains(content, unexpected, label) {
   }
 }
 
+function assertMatches(content, pattern, label) {
+  if (!pattern.test(content)) {
+    throw new Error(`Expected pattern ${pattern} in ${label}`);
+  }
+}
+
 function run() {
   const blogIndexRel = "blog/index.html";
   const blogPostRel = "blog/post/index.html";
@@ -115,13 +121,13 @@ function run() {
 
   [
     "--bg: #f4f6fb;",
-    '[data-theme="dark"]',
     "--bg: #000000;",
     "border-radius: 50%",
     "object-position: center center;",
     ".blog-grid",
     ".blog-body",
   ].forEach((expected) => assertContains(css, expected, cssRel));
+  assertMatches(css, /\[data-theme=['"]dark['"]\]/, cssRel);
 
   [
     "const translations",

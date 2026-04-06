@@ -33,6 +33,7 @@ function assertNotContains(content, unexpected, label) {
 }
 
 function assertMatches(content, pattern, label) {
+  pattern.lastIndex = 0;
   if (!pattern.test(content)) {
     throw new Error(`Expected pattern ${pattern} in ${label}`);
   }
@@ -155,8 +156,10 @@ function run() {
   [
     "window.__BLOG_POSTS__",
     "from-vibe-coding-to-spec-driven-engineering",
+    "intentional-engineering-needs-explicit-decision-frameworks",
     '"pt-BR"',
     '"en-US"',
+    '"description": "In an environment shaped by AI, legacy systems, and cross-functional delivery, engineering consistency depends less on individual heroics and more on clear models for deciding, reviewing, and validating work."',
   ].forEach((expected) => assertContains(generatedBlog, expected, generatedBlogRel));
 
   [

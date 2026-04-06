@@ -190,6 +190,11 @@ function renderMarkdown(markdown) {
       return;
     }
 
+    if (state.listType && /^\s+/.test(line) && /^<li>.*<\/li>$/.test(html[html.length - 1] || "")) {
+      html[html.length - 1] = html[html.length - 1].replace("</li>", ` ${renderInline(trimmed)}</li>`);
+      return;
+    }
+
     closeList(html, state);
     paragraph.push(trimmed);
   });

@@ -46,19 +46,47 @@ function parseFrontmatter(filePath, raw) {
   }
 
   const data = {};
-  match[1]
-    .split("\n")
-    .map((line) => line.trim())
-    .filter(Boolean)
-    .forEach((line) => {
-      const separator = line.indexOf(":");
-      if (separator === -1) {
-        return;
+  const lines = match[1].split("\n");
+
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = lines[index];
+    const trimmed = line.trim();
+
+    if (!trimmed) {
+      continue;
+    }
+
+    const separator = trimmed.indexOf(":");
+    if (separator === -1) {
+      continue;
+    }
+
+    const key = trimmed.slice(0, separator).trim();
+    const rawValue = trimmed.slice(separator + 1).trim();
+
+    if (rawValue) {
+      data[key] = parseValue(rawValue);
+      continue;
+    }
+
+    const continuation = [];
+    while (index + 1 < lines.length) {
+      const nextLine = lines[index + 1];
+      if (!nextLine.trim()) {
+        index += 1;
+        continue;
       }
-      const key = line.slice(0, separator).trim();
-      const value = line.slice(separator + 1).trim();
-      data[key] = parseValue(value);
-    });
+      if (!/^\s+/.test(nextLine)) {
+        break;
+      }
+      continuation.push(nextLine.trim());
+      index += 1;
+    }
+
+    if (continuation.length) {
+      data[key] = parseValue(continuation.join(" "));
+    }
+  }
 
   return { data, body: match[2].trim() };
 }

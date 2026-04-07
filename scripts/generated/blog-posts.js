@@ -2,13 +2,7 @@ window.__BLOG_POSTS__ = [
   {
     "slug": "engineering-with-agents-is-a-systems-design-problem",
     "date": "2026-04-07",
-    "tags": [
-      "ai",
-      "agentic-engineering",
-      "systems-thinking",
-      "software-architecture",
-      "frontend"
-    ],
+    "tags": [],
     "sourceNewsletter": "2026-04-07-1149-newsletter-01-agentes-sistemas-e-criterio",
     "locales": {
       "en-US": {

@@ -29,7 +29,7 @@ const htmlOptions = {
       passes: 2,
     },
     format: {
-      ascii_only: true,
+      ascii_only: false,
       comments: false,
     },
     mangle: false,
@@ -51,7 +51,7 @@ const jsOptions = {
     passes: 2,
   },
   format: {
-    ascii_only: true,
+    ascii_only: false,
     comments: false,
   },
   mangle: false,

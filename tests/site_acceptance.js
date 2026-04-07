@@ -160,6 +160,11 @@ function runMainScript(scriptSource, posts) {
   vm.runInNewContext(scriptSource, sandbox, { filename: "scripts/main.js" });
 
   assert(document.documentElement.lang === "en-US", "Expected main.js to apply the default locale");
+  assert(themeToggle.textContent === "Dark", "Expected theme toggle label to reflect the next available theme");
+  assert(themeToggle.getAttribute("aria-label") === "Dark. Toggle color theme", "Expected theme toggle accessible name to include the visible label");
+  assert(themeToggle.getAttribute("aria-pressed") === "false", "Expected theme toggle to expose the current pressed state");
+  assert(langToggle.textContent === "PT", "Expected language toggle label to reflect the alternate locale");
+  assert(langToggle.getAttribute("aria-label") === "PT. Toggle language", "Expected language toggle accessible name to include the visible label");
   assert(preview.innerHTML.includes("blog/post/index.html?slug="), "Expected preview cards to be rendered");
   assert(list.innerHTML.includes("post/index.html?slug="), "Expected blog index cards to be rendered");
   assert(post.innerHTML.includes(posts[0].locales["en-US"].title), "Expected article page to render the selected post");

@@ -249,11 +249,15 @@ function renderBlogPost() {
 function refreshThemeLabel(theme) {
   const dict = translations[activeLocale] || translations[DEFAULT_LOCALE];
   if (themeToggle) {
-    themeToggle.textContent = theme === "light" ? dict.themeDarkLabel : dict.themeLightLabel;
-    themeToggle.setAttribute("aria-label", dict.themeToggleAria);
+    const themeLabel = theme === "light" ? dict.themeDarkLabel : dict.themeLightLabel;
+    themeToggle.textContent = themeLabel;
+    themeToggle.setAttribute("aria-label", `${themeLabel}. ${dict.themeToggleAria}`);
+    themeToggle.setAttribute("aria-pressed", theme === "dark" ? "true" : "false");
   }
   if (langToggle) {
-    langToggle.setAttribute("aria-label", dict.langToggleAria);
+    const langLabel = activeLocale === "en-US" ? "PT" : "EN";
+    langToggle.textContent = langLabel;
+    langToggle.setAttribute("aria-label", `${langLabel}. ${dict.langToggleAria}`);
   }
 }
 
@@ -275,9 +279,6 @@ function applyLanguage(locale) {
       node.textContent = dict[key];
     }
   });
-  if (langToggle) {
-    langToggle.textContent = selected === "en-US" ? "PT" : "EN";
-  }
   setStored("preferred-language", selected);
   refreshThemeLabel(getStored("preferred-theme") || DEFAULT_THEME);
   renderBlogPreview();

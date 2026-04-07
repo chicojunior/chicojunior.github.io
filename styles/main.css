@@ -8,6 +8,7 @@
 	--muted: #54617a;
 	--line: #d6def0;
 	--accent: #2f6fff;
+	--accent-strong: #2a64e8;
 	--accent-contrast: #ffffff;
 	--button-bg: #ffffff;
 	--avatar-ring: #9fb6e0;
@@ -19,7 +20,7 @@
 	--chip-text: #203250;
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
 	--bg: #000000;
 	--bg-glow-left: #0b1220;
 	--bg-glow-right: #101726;
@@ -29,6 +30,7 @@
 	--muted: #a8b1c2;
 	--line: #2d2d2d;
 	--accent: #78b9ff;
+	--accent-strong: #78b9ff;
 	--accent-contrast: #041327;
 	--button-bg: #121212;
 	--avatar-ring: #3a4d66;
@@ -201,8 +203,8 @@ h1 {
 }
 
 .link-btn.primary {
-	background: var(--accent);
-	border-color: var(--accent);
+	background: var(--accent-strong);
+	border-color: var(--accent-strong);
 	color: var(--accent-contrast);
 }
 

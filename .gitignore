@@ -1,4 +1,6 @@
 .DS_Store
 .cursor
 .superpowers/
+/dist
+/node_modules
 /old

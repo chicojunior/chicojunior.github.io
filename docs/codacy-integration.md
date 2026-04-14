@@ -1,6 +1,6 @@
 # Codacy integration
 
-This repository is ready for Codacy analysis with a repository-level configuration in `.codacy.yaml` and a CI workflow in `.github/workflows/ci.yaml`.
+The Codacy webhook/integration is already connected for this repository. The repository-side setup is ready with `.codacy.yaml` and `.github/workflows/ci.yaml`.
 
 ## What is configured in the repository
 
@@ -13,14 +13,11 @@ This repository is ready for Codacy analysis with a repository-level configurati
   - `npm run build`
   - `npm test`
 
-## Manual steps in Codacy
+## Remaining checks in Codacy
 
-1. Install the Codacy GitHub App for the account or organization that owns `chicojunior/chicojunior.github.io`.
-2. Grant the app access to this repository.
-3. Import the repository in Codacy.
-4. Confirm the default branch in Codacy matches the repository default branch.
-5. Enable pull request analysis, annotations, and status checks.
-6. If desired, require the Codacy quality check before merge in the repository branch protection rules.
+1. Confirm the repository is imported and the default branch matches the repository default branch.
+2. Enable pull request analysis, annotations, and status checks if they are not already active.
+3. If desired, require the Codacy quality check before merge in the repository branch protection rules.
 
 ## Coverage
 

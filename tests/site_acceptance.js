@@ -6,9 +6,7 @@ const path = require("node:path");
 const vm = require("node:vm");
 
 const root = path.resolve(__dirname, "..");
-const buildRoot = process.argv[2]
-  ? path.resolve(root, process.argv[2])
-  : path.join(root, "dist");
+const buildRoot = process.argv[2] ? path.resolve(root, process.argv[2]) : path.join(root, "dist");
 
 function sourceFilePath(rel) {
   return path.join(root, rel);
@@ -305,11 +303,11 @@ function run() {
   assert(Array.isArray(posts), "Expected generated blog data to expose an array of posts");
   assert(posts.length >= 3, "Expected at least three posts in generated blog data");
   assert(
-    posts.some((post) =>
-      post.locales
-      && post.locales["en-US"]
-      && post.locales["en-US"].description === "In an environment shaped by AI, legacy systems, and cross-functional delivery, engineering consistency depends less on individual heroics and more on clear models for deciding, reviewing, and validating work."
-    ),
+    posts.some((post) => {
+      const englishLocale = post.locales && post.locales["en-US"];
+      return englishLocale
+        && englishLocale.description === "In an environment shaped by AI, legacy systems, and cross-functional delivery, engineering consistency depends less on individual heroics and more on clear models for deciding, reviewing, and validating work.";
+    }),
     "Expected generated blog data to preserve the key article description"
   );
   runMainScript(js, posts);

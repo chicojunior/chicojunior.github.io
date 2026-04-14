@@ -305,7 +305,10 @@ function run() {
   assert(
     posts.some((post) => {
       const englishLocale = post.locales && post.locales["en-US"];
-      return Boolean(englishLocale && englishLocale.description === "In an environment shaped by AI, legacy systems, and cross-functional delivery, engineering consistency depends less on individual heroics and more on clear models for deciding, reviewing, and validating work.");
+      if (!englishLocale) {
+        return false;
+      }
+      return englishLocale.description === "In an environment shaped by AI, legacy systems, and cross-functional delivery, engineering consistency depends less on individual heroics and more on clear models for deciding, reviewing, and validating work.";
     }),
     "Expected generated blog data to preserve the key article description"
   );

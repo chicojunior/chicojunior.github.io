@@ -1,6 +1,6 @@
 # Codacy integration
 
-This repository is ready for Codacy analysis with a repository-level configuration in `/home/runner/work/chicojunior.github.io/chicojunior.github.io/.codacy.yaml` and a CI workflow in `/home/runner/work/chicojunior.github.io/chicojunior.github.io/.github/workflows/ci.yaml`.
+This repository is ready for Codacy analysis with a repository-level configuration in `.codacy.yaml` and a CI workflow in `.github/workflows/ci.yaml`.
 
 ## What is configured in the repository
 

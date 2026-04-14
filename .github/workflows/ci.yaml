@@ -7,6 +7,9 @@ on:
       - master
       - main
 
+permissions:
+  contents: read
+
 jobs:
   validate:
     runs-on: ubuntu-latest

@@ -1,5 +1,33 @@
 window.__BLOG_POSTS__ = [
   {
+    "slug": "engineering-judgment-in-the-age-of-cheap-complexity",
+    "date": "2026-04-14",
+    "tags": [
+      "ai",
+      "agentic-engineering",
+      "frontend-architecture",
+      "systems-thinking",
+      "software-operations"
+    ],
+    "sourceNewsletter": "2026-04-14-1114-newsletter-01-criterio-corpo-e-arquitetura",
+    "locales": {
+      "en-US": {
+        "id": "2026-04-14-engineering-judgment-in-the-age-of-cheap-complexity-en-US",
+        "title": "Engineering judgment in the age of cheap complexity",
+        "description": "As frameworks and agents make implementation cheaper, engineering advantage shifts to architectural judgment, operational discipline, and tighter feedback loops.",
+        "html": "<h2>Useful engineering is decision quality again</h2>\n<p>Code generation got dramatically faster, but decision quality does not scale automatically. As frameworks, agents, and automation reduce implementation cost, the bottleneck moves to judgment: what to simplify, what to decompose, what to instrument, and what to reject.</p>\n<p>That shift explains why recent architecture conversations are converging. The common thread is not anti-AI or anti-framework. It is pro-operational discipline.</p>\n<h2>What changed in the technical cycle</h2>\n<p>Three moves became more visible.</p>\n<p>First, decomposition is no longer a virtue by default. The multi-agent versus microservices analogy shows that decomposing too early pushes complexity into coordination, hand-offs, and observability.</p>\n<p>Second, frontend stack choice is again a feedback-loop decision, not a fashion choice. In client-driven, real-time products, reducing build time and shortening the dev loop can create more business leverage than piling on &quot;complete&quot; abstractions.</p>\n<p>Third, incident investigation is becoming an internal product. Instead of relying on specialist memory, teams codify diagnosis workflows as testable, versioned software and get measurable MTTR gains.</p>\n<h2>Failure modes and trade-offs</h2>\n<ul>\n<li>Scaling into distributed architectures without clear boundaries turns flexibility into fragility.</li>\n<li>Treating best practices as dogma (or ignoring them entirely) creates the same outcome: context-free decisions.</li>\n<li>Accelerating delivery with AI without a review and security model converts speed into operational debt.</li>\n</ul>\n<h2>Practical operating model</h2>\n<ul>\n<li>Start with the smallest design that solves the problem and require evidence before adding new autonomy layers.</li>\n<li>Encode rollout, validation, observability, and rollback into executable mechanisms instead of relying on informal discipline.</li>\n<li>Measure productivity by system learning and recovery time, not just by output volume.</li>\n<li>Treat team health and energy as part of sociotechnical architecture: focus, clarity, and consistency are infrastructure.</li>\n</ul>\n<h2>Practical takeaway</h2>\n<p>In the era of cheap complexity, mature engineering is not about doing more. It is about doing less with more intent and turning judgment into repeatable system behavior.</p>",
+        "readingTimeMinutes": 2
+      },
+      "pt-BR": {
+        "id": "2026-04-14-engineering-judgment-in-the-age-of-cheap-complexity-pt-BR",
+        "title": "Engenharia de critério na era da complexidade barata",
+        "description": "Com frameworks e agentes barateando implementação, o diferencial técnico migra para julgamento arquitetural, disciplina operacional e ciclos de feedback curtos.",
+        "html": "<h2>A engenharia útil voltou a ser decisão</h2>\n<p>A velocidade para gerar código cresceu muito, mas a qualidade das decisões não cresce por osmose. Quando frameworks, agentes e automação reduzem o custo de implementação, o gargalo muda para julgamento: o que simplificar, o que decompor, o que instrumentar e o que recusar.</p>\n<p>Essa mudança está por trás de várias discussões recentes sobre arquitetura. O ponto em comum não é anti-IA ou anti-framework. É pró-critério operacional.</p>\n<h2>O que mudou no ciclo técnico</h2>\n<p>Três deslocamentos ficaram mais claros.</p>\n<p>Primeiro, a decomposição deixou de ser automaticamente virtude. A analogia entre multi-agent e microservices mostra que modularizar cedo demais transfere complexidade para coordenação, hand-offs e observabilidade.</p>\n<p>Segundo, stack frontend voltou a ser decisão de feedback loop, não de moda. Em produtos client-driven e em tempo real, reduzir build time e encurtar o dev loop pode gerar mais impacto de negócio do que acumular abstrações &quot;completas&quot;.</p>\n<p>Terceiro, investigação de incidentes está virando produto interno. Em vez de depender de memória de especialistas, times codificam diagnósticos como software testável e versionado, com ganhos reais de MTTR.</p>\n<h2>Modos de falha e trade-offs</h2>\n<ul>\n<li>Escalar para arquiteturas distribuídas sem fronteiras claras transforma flexibilidade em fragilidade.</li>\n<li>Tratar boas práticas como dogma (ou ignorá-las por completo) produz o mesmo problema: decisões descoladas de contexto.</li>\n<li>Acelerar entrega com IA sem modelo de revisão e segurança converte velocidade em dívida de operação.</li>\n</ul>\n<h2>Modelo operacional prático</h2>\n<ul>\n<li>Comece pelo menor desenho que resolve o problema e exija evidência antes de adicionar novas camadas de autonomia.</li>\n<li>Defina padrões executáveis para rollout, validação, observabilidade e rollback, em vez de depender de disciplina informal.</li>\n<li>Meça produtividade pelo tempo de aprendizagem e de recuperação do sistema, não apenas pelo volume de código produzido.</li>\n<li>Trate saúde e energia da equipe como parte da arquitetura sociotécnica: foco, clareza e consistência também são infraestrutura.</li>\n</ul>\n<h2>Takeaway técnico</h2>\n<p>Na era da complexidade barata, engenharia madura não é &quot;fazer mais&quot;. É fazer menos com mais intenção, e transformar julgamento em sistema repetível.</p>",
+        "readingTimeMinutes": 2
+      }
+    }
+  },
+  {
     "slug": "engineering-with-agents-is-a-systems-design-problem",
     "date": "2026-04-07",
     "tags": [],

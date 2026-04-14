@@ -58,7 +58,8 @@ function parseFrontmatter(filePath, raw) {
 
     if (/^\s+/.test(line) && currentKey) {
       const continuation = line.trim();
-      const previous = data[currentKey] == null ? "" : String(data[currentKey]);
+      const currentValue = data[currentKey];
+      const previous = currentValue === undefined || currentValue === null ? "" : String(currentValue);
       data[currentKey] = previous ? `${previous} ${continuation}` : continuation;
       continue;
     }

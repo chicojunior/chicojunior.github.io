@@ -1,0 +1,2 @@
+# chicojunior.github.io
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/279ae078d90f4cce81f26a754ba0b6d6)](https://app.codacy.com/gh/chicojunior/chicojunior.github.io?utm_source=github.com&utm_medium=referral&utm_content=chicojunior/chicojunior.github.io&utm_campaign=Badge_Grade)

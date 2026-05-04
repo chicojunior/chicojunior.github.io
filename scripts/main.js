@@ -88,6 +88,7 @@ const translations = {
 
 const langToggle = document.getElementById("lang-toggle");
 const themeToggle = document.getElementById("theme-toggle");
+const resumeLink = document.getElementById("resume-link");
 
 var _memStore = {};
 var activeLocale = DEFAULT_LOCALE;
@@ -261,6 +262,21 @@ function refreshThemeLabel(theme) {
   }
 }
 
+function updateResumeLink(locale) {
+  if (!resumeLink) {
+    return;
+  }
+
+  const normalized = normalizeLocale(locale);
+  const resumeHref = normalized === "pt-BR"
+    ? resumeLink.getAttribute("data-resume-pt-br")
+    : resumeLink.getAttribute("data-resume-en");
+
+  if (resumeHref) {
+    resumeLink.setAttribute("href", resumeHref);
+  }
+}
+
 function applyTheme(theme) {
   const selected = theme === "dark" ? "dark" : "light";
   document.documentElement.setAttribute("data-theme", selected);
@@ -273,6 +289,7 @@ function applyLanguage(locale) {
   const dict = translations[selected] || translations[DEFAULT_LOCALE];
   activeLocale = selected;
   document.documentElement.lang = selected;
+  updateResumeLink(selected);
   document.querySelectorAll("[data-i18n]").forEach((node) => {
     const key = node.getAttribute("data-i18n");
     if (dict[key]) {

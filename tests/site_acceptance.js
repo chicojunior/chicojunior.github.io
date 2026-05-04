@@ -70,7 +70,15 @@ function createNode(attributes = {}) {
     attributes: { ...attributes },
     innerHTML: "",
     textContent: "",
-    addEventListener() { },
+    listeners: {},
+    addEventListener(type, handler) {
+      this.listeners[type] = handler;
+    },
+    click() {
+      if (typeof this.listeners.click === "function") {
+        this.listeners.click();
+      }
+    },
     getAttribute(name) {
       return this.attributes[name] || null;
     },
@@ -89,6 +97,11 @@ function evaluateBlogData(scriptSource) {
 function runMainScript(scriptSource, posts) {
   const langToggle = createNode();
   const themeToggle = createNode();
+  const resumeLink = createNode({
+    href: "assets/resume/2026/resume-en.html",
+    "data-resume-en": "assets/resume/2026/resume-en.html",
+    "data-resume-pt-br": "assets/resume/2026/resume-pt-br.html",
+  });
   const preview = createNode();
   const list = createNode();
   const post = createNode();
@@ -109,6 +122,9 @@ function runMainScript(scriptSource, posts) {
       }
       if (id === "theme-toggle") {
         return themeToggle;
+      }
+      if (id === "resume-link") {
+        return resumeLink;
       }
       return null;
     },
@@ -163,9 +179,15 @@ function runMainScript(scriptSource, posts) {
   assert(themeToggle.getAttribute("aria-pressed") === "false", "Expected theme toggle to expose the current pressed state");
   assert(langToggle.textContent === "PT", "Expected language toggle label to reflect the alternate locale");
   assert(langToggle.getAttribute("aria-label") === "PT. Toggle language", "Expected language toggle accessible name to include the visible label");
+  assert(resumeLink.getAttribute("href") === "assets/resume/2026/resume-en.html", "Expected resume CTA to point to the English public resume by default");
   assert(preview.innerHTML.includes("blog/post/index.html?slug="), "Expected preview cards to be rendered");
   assert(list.innerHTML.includes("post/index.html?slug="), "Expected blog index cards to be rendered");
   assert(post.innerHTML.includes(posts[0].locales["en-US"].title), "Expected article page to render the selected post");
+
+  langToggle.click();
+
+  assert(document.documentElement.lang === "pt-BR", "Expected language toggle to switch the active locale");
+  assert(resumeLink.getAttribute("href") === "assets/resume/2026/resume-pt-br.html", "Expected resume CTA to point to the PT-BR public resume after language toggle");
 }
 
 function run() {
@@ -178,6 +200,9 @@ function run() {
   const generatedBlogRel = "scripts/generated/blog-posts.js";
   const avatarRel = "assets/img/chibi-avatar.jpg";
   const faviconRel = "assets/img/favicon-fv.svg";
+  const resumeEnRel = "assets/resume/2026/resume-en.html";
+  const resumePtBrRel = "assets/resume/2026/resume-pt-br.html";
+  const resumeCssRel = "assets/resume/2026/resume.css";
   const oldCvRel = "old/CV-Current.pdf";
   const oldIndexRel = "old/index.html";
 
@@ -189,12 +214,15 @@ function run() {
   assertFile(generatedBlogRel);
   assertFile(avatarRel);
   assertFile(faviconRel);
-  assertFile(oldCvRel);
+  assertFile(resumeEnRel);
+  assertFile(resumePtBrRel);
+  assertFile(resumeCssRel);
   assertFile(oldIndexRel);
 
   assertMissing(buildBlogRel);
   assertMissing("tests/site_acceptance.js");
   assertMissing("content/blog/2026-04-06-from-vibe-coding-to-spec-driven-engineering.pt-BR.md");
+  assertMissing(oldCvRel);
 
   [
     indexRel,
@@ -223,7 +251,9 @@ function run() {
     'id="theme-toggle"',
     'href="https://linkedin.com/in/franciscovale"',
     'href="https://github.com/chicojunior"',
-    'href="old/CV-Current.pdf"',
+    'id="resume-link"',
+    'data-resume-en="assets/resume/2026/resume-en.html"',
+    'data-resume-pt-br="assets/resume/2026/resume-pt-br.html"',
     'target="_blank"',
     'src="assets/img/chibi-avatar.jpg"',
     'class="hero-card panel"',
@@ -243,6 +273,8 @@ function run() {
     'data-blog-preview',
     "stack-chip",
   ].forEach((expected) => assertContains(index, expected, indexRel));
+
+  assertNotContains(index, 'href="old/CV-Current.pdf"', indexRel);
 
   [
     'data-blog-list',

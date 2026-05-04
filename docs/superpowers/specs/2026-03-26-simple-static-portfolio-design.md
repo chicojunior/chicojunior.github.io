@@ -5,7 +5,8 @@ Status: Approved in chat, pending implementation planning
 
 ## 1. Goal
 
-Reformulate the personal website into the simplest possible modern "business card" experience, with:
+Reformulate the personal website into the simplest possible modern "business
+card" experience, with:
 
 - Minimal editorial visual direction
 - One-page structure (no menu)
@@ -40,14 +41,15 @@ Reformulate the personal website into the simplest possible modern "business car
 - Inline `<style>` and inline `<script>` for maximum simplicity
 - Existing static assets reused where needed:
   - `assets/img/chibi-avatar.png`
-  - `CV-Current.pdf` (or equivalent final CV path)
+  - public resume entrypoint under `assets/resume/`
 
 ### 3.2 Runtime behavior
 
 - Default language is `en`
 - Language toggle updates UI text in place (no page reload)
 - User preference is stored in `localStorage`
-- Page sets `document.documentElement.lang` dynamically to reflect active language
+- Page sets `document.documentElement.lang` dynamically to reflect active
+  language
 
 ### 3.3 Deployment model
 
@@ -126,7 +128,8 @@ Each key contains section copy, labels, and button text.
 2. Move final asset references to stable static paths
 3. Ensure `CNAME` remains intact if custom domain is still used
 4. Stop depending on Hugo config/theme for rendering
-5. Keep old material under `old/` as historical backup (no active runtime dependency)
+5. Keep old material under `old/` as historical backup (no active runtime
+   dependency)
 
 ## 8. Success Criteria
 
@@ -144,7 +147,8 @@ Each key contains section copy, labels, and button text.
   Mitigation: Keep clear section comments and small helper functions
 
 - Risk: Old Hugo files can create confusion for future edits  
-  Mitigation: Document active architecture in README and optionally archive/remove obsolete files in a later cleanup step
+  Mitigation: Document active architecture in README and optionally
+  archive/remove obsolete files in a later cleanup step
 
 - Risk: Bilingual copy drift between EN/PT  
   Mitigation: Keep keys mirrored and grouped in a single translation object

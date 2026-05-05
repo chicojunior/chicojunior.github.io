@@ -240,6 +240,8 @@ function run() {
   const js = readBuiltText(jsRel);
   const generatedBlog = readBuiltText(generatedBlogRel);
   const favicon = readBuiltText(faviconRel);
+  const resumeEn = readBuiltText(resumeEnRel);
+  const resumePtBr = readBuiltText(resumePtBrRel);
 
   [
     'href="styles/main.css"',
@@ -275,6 +277,18 @@ function run() {
   ].forEach((expected) => assertContains(index, expected, indexRel));
 
   assertNotContains(index, 'href="old/CV-Current.pdf"', indexRel);
+
+  [
+    'href="./resume-en.html"',
+    'download="Francisco-Vale-Resume-en-US.html"',
+    'Save as PDF',
+  ].forEach((expected) => assertContains(resumeEn, expected, resumeEnRel));
+
+  [
+    'href="./resume-pt-br.html"',
+    'download="Francisco-Vale-CV-pt-BR.html"',
+    'Guardar em PDF',
+  ].forEach((expected) => assertContains(resumePtBr, expected, resumePtBrRel));
 
   [
     'data-blog-list',

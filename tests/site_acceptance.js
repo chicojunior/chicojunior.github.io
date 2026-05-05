@@ -202,6 +202,8 @@ function run() {
   const faviconRel = "assets/img/favicon-fv.svg";
   const resumeEnRel = "assets/resume/2026/resume-en.html";
   const resumePtBrRel = "assets/resume/2026/resume-pt-br.html";
+  const resumeEnPdfRel = "assets/resume/2026/resume-en.pdf";
+  const resumePtBrPdfRel = "assets/resume/2026/resume-pt-br.pdf";
   const resumeCssRel = "assets/resume/2026/resume.css";
   const oldCvRel = "old/CV-Current.pdf";
   const oldIndexRel = "old/index.html";
@@ -216,6 +218,8 @@ function run() {
   assertFile(faviconRel);
   assertFile(resumeEnRel);
   assertFile(resumePtBrRel);
+  assertFile(resumeEnPdfRel);
+  assertFile(resumePtBrPdfRel);
   assertFile(resumeCssRel);
   assertFile(oldIndexRel);
 
@@ -279,16 +283,16 @@ function run() {
   assertNotContains(index, 'href="old/CV-Current.pdf"', indexRel);
 
   [
-    'href="./resume-en.html"',
-    'download="Francisco-Vale-Resume-en-US.html"',
-    'Save as PDF',
+    'href="./resume-en.pdf"',
+    'download="Francisco-Vale-Resume-en-US.pdf"',
   ].forEach((expected) => assertContains(resumeEn, expected, resumeEnRel));
+  assertNotContains(resumeEn, 'Save as PDF', resumeEnRel);
 
   [
-    'href="./resume-pt-br.html"',
-    'download="Francisco-Vale-CV-pt-BR.html"',
-    'Guardar em PDF',
+    'href="./resume-pt-br.pdf"',
+    'download="Francisco-Vale-CV-pt-BR.pdf"',
   ].forEach((expected) => assertContains(resumePtBr, expected, resumePtBrRel));
+  assertNotContains(resumePtBr, 'Guardar em PDF', resumePtBrRel);
 
   [
     'data-blog-list',
@@ -307,8 +311,8 @@ function run() {
   assertNotContains(index, "blowfish", indexRel);
 
   [
-    "--bg:#f4f6fb",
-    "--bg:#000000",
+    "--bg:#fbf4ef",
+    "--bg:#120d0b",
     "object-position:center center",
     ".blog-grid",
     ".blog-body",
@@ -336,8 +340,8 @@ function run() {
 
   [
     "&lt;FV&gt;",
-    "#F7DF1E",
-    "#1A1A1A",
+    "#B4492F",
+    "#FFF8F4",
     "Fira Code",
     "JetBrains Mono",
     "IBM Plex Mono",
